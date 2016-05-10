@@ -29,22 +29,24 @@ app.get('/:timestamp', function(req, res) {
 		natural: null
 	};
 	
-	console.log("Timestamp received: " + req.params.timestamp);
+// 	console.log("Timestamp received: " + req.params.timestamp);
 
 	let date = new Date(req.params.timestamp);
-	console.log(req.params.timestamp + " " + date.toString());
+// 	console.log(req.params.timestamp + " " + date.toString());
 
 	if (isNaN(date)) {
-	  console.log("Invalid Date");
+	 // console.log("Invalid Date");
 		date = new Date(parseInt(req.params.timestamp, 10));
 	}
 
-	console.log(req.params.timestamp + " " + date.toString());
+// 	console.log(req.params.timestamp + " " + date.toString());
 
 	if (!isNaN(date)) {
 		rspobj.unix = date.valueOf();
 		rspobj.natural = `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 	}
+	
+	res.header('Content-Type', 'application/json');
 
 	res.send(rspobj);
 });

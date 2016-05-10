@@ -6,3 +6,18 @@ User Story: If it does, it returns both the Unix timestamp and the natural langu
 
 User Story: If it does not contain a date or Unix timestamp, it returns null for those properties.
 
+Sample:
+
+https://fcctimestampproject-silgarth.c9users.io/dec%209%201958
+
+{
+"unix": -349142400000,
+"natural": "December 9, 1958"
+}
+
+https://fcctimestampproject-silgarth.c9users.io/fred
+
+{
+"unix": null,
+"natural": null
+}
